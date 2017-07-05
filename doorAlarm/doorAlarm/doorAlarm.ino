@@ -4,19 +4,21 @@ int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2};
 int tempo = 113;
 int sensorPin=10;
 int buzzPin=5;
+int prevState=LOW;
+int state=LOW;
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(sensorPin,INPUT_PULLUP); // sensor
   pinMode(buzzPin,OUTPUT);
-  int prevState=LOW;
+  
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int state=digitalRead(sensorPin);
-  if(state!=prevState && state=HIGH){
+  state=digitalRead(sensorPin);
+  if(state!=prevState && state==HIGH){
     int i, duration;
     for (i = 0; i < songLength; i++) // step through the song arrays
     {
@@ -27,7 +29,7 @@ void loop() {
       }
       else                          // otherwise, play the note
       {
-        tone(buzzerPin, frequency(notes[i]), duration);
+        tone(buzzPin, frequency(notes[i]), duration);
         delay(duration);            // wait for tone to finish
       }
       delay(tempo/10);              // brief pause between notes
