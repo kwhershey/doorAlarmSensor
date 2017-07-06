@@ -1,3 +1,5 @@
+#include "LowPower.h"
+
 const int songLength = 18;
 char notes[] = "cdfda ag cdfdg gf ";
 int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2};
@@ -38,6 +40,7 @@ void loop() {
     state=LOW;
   }
   prevState=state;
+  LowPower.powerDown(SLEEP_2S,ADC_OFF,BOD_OFF);
   
 }
 
