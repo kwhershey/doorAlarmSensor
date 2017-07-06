@@ -4,8 +4,8 @@ const int songLength = 18;
 char notes[] = "cdfda ag cdfdg gf ";
 int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2};
 int tempo = 113;
-int sensorPin=10;
-int buzzPin=5;
+int sensorPin=7;
+int buzzPin=4;
 int prevState=LOW;
 int state=LOW;
 
